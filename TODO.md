@@ -1,0 +1,21 @@
+MVP
+
+- [x] Create a green background with html5 canvas
+- [ ] Create a 100x100 grid
+- [ ] Create a playeable character with camera movement
+- [ ] Add stats (Health, damage, speed, regen) to player
+- [ ] Add Normal enemy type (with stats)
+- [ ] Add katana attack to player
+- [ ] Add hitboxes to player and enemy
+- [ ] Add pathfinding AI to enemies
+- [ ] Add fire champion (With stats)
+- [ ] Add fire champion hitbox
+- [ ] Add champion pathfinding to nearest enemy (And update enemy to include pathfind to champions)
+- [ ] Add fire champion attack
+- [ ] Add fire champion respawning
+- [ ] Add placeable walls
+- [ ] Create UI system (damage & health display)
+- [ ] Create wave system (duration, enemy spawn intervals, randomised enemy spawn locations, UI)
+- [ ] Add game over screen
+- [ ] Create 3 waves
+- [ ] Add player ability to reposition champions
