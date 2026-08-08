@@ -1,9 +1,13 @@
+import { spriteHandler } from "./spriteHandler.js";
+import { mapData } from "./mapData.js";
+
 export const Display = {
 
     canvas: null,
     ctx: null,
     height: null,
     width: null,
+    tileSize: 256,
 
     /**
      * Resizes the canvas to match the browser viewport
@@ -20,9 +24,19 @@ export const Display = {
         this.drawBackground();
     },
 
+    /**
+     * Draw a 100x100 grass background
+     */
     drawBackground() {
-        this.ctx.fillStyle = "green";
-        this.ctx.fillRect(0, 0, this.width, this.height);
+        const grassSprite = spriteHandler.sprites.grass;
+        let canvasX, canvasY;
+        for (let x = 0; x < mapData.defense.grasslands.width; x++) {
+            canvasX = x * this.tileSize
+            for (let y = 0; y < mapData.defense.grasslands.height; y++) {
+                canvasY = y * this.tileSize;
+                this.ctx.drawImage(grassSprite, canvasX, canvasY)
+            }
+        }
     },
 
     init() {
