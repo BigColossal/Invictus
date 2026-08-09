@@ -1,7 +1,7 @@
 MVP
 
 - [x] Create a green background with html5 canvas
-- [x] Create a 100x100 grid
+- [x] Create a 100x100 grass background
 - [ ] Create a playeable character with camera movement
 - [ ] Add stats (Health, damage, speed, regen) to player
 - [ ] Add Normal enemy type (with stats)

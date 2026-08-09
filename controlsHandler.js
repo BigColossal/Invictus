@@ -1,0 +1,43 @@
+import { Camera } from "./camera.js";
+import { Player } from "./player.js";
+
+export const controlsHandler = {
+    keys: new Set(),
+    keyPressed: false,
+    init() {
+        window.addEventListener("keydown", (e) => {
+            this.keys.add(e.key)
+            this.keyPressed = true;
+        })
+        window.addEventListener("keyup", (e) => {
+            this.keys.delete(e.key)
+            if (this.keys.size == 0) {
+                this.keyPressed = false;
+            }
+        })
+    },
+
+    runChecks() {
+        if (this.keyPressed) {
+            this.handleKeyPress()
+        }
+    },
+
+    handleKeyPress() {
+        let x = 0, y = 0;
+
+        if (this.keys.has("a")) {
+            x -= Player.speed;
+        } else if (this.keys.has("d")) {
+            x += Player.speed;
+        }
+
+        if (this.keys.has("s")) {
+            y += Player.speed;
+        } else if (this.keys.has("w")) {
+            y -= Player.speed;
+        }
+        
+        Player.movePosition(x, y)
+    }
+}

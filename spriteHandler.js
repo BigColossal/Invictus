@@ -7,7 +7,7 @@ export const spriteHandler = {
     async getSprites() {
 
         const namesAndPaths = [
-            ["grass", "./assets/grassSprite.png", "256"]]
+            ["grass", "./assets/grassSprite.png", "128"]]
         await Promise.all(
             namesAndPaths.map(async ([name, path, tileSize]) => {
                 this.sprites[name] = await getSprite(path, tileSize);

@@ -1,5 +1,7 @@
 import { spriteHandler } from "./spriteHandler.js";
 import { mapData } from "./mapData.js";
+import { Player } from "./player.js"
+import { Camera } from "./camera.js"
 
 export const Display = {
 
@@ -7,7 +9,7 @@ export const Display = {
     ctx: null,
     height: null,
     width: null,
-    tileSize: 256,
+    tileSize: 128,
 
     /**
      * Resizes the canvas to match the browser viewport
@@ -37,6 +39,19 @@ export const Display = {
                 this.ctx.drawImage(grassSprite, canvasX, canvasY)
             }
         }
+    },
+
+    drawPlayer() {
+        this.ctx.fillStyle = "white";
+        const [x, y] = Player.position;
+
+        this.ctx.fillRect(x, y, 50, 50);
+    },
+
+    update() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        this.drawBackground();
+        this.drawPlayer();
     },
 
     init() {
