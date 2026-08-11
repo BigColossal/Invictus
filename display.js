@@ -31,7 +31,16 @@ export const Display = {
      * Draw a 100x100 grass background
      */
     drawBackground() {
-        this.ctx.drawImage(this.backgroundCanvas, 0 - Camera.position[0], 0 - Camera.position[1])
+        const sx = Math.floor(0 + Camera.position[0]);
+        const sy = Math.floor(0 + Camera.position[1]);
+
+        const sw = this.width;
+        const sh = this.height;
+
+        this.ctx.drawImage(
+            this.backgroundCanvas, 
+            sx, sy, sw, sh, 
+            0, 0, sw, sh);
     },
 
     createBackground() {

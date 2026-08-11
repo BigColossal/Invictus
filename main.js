@@ -4,6 +4,7 @@ import { controlsHandler } from "./controlsHandler.js";
 import { Player } from "./player.js";
 import { Camera } from "./camera.js";
 import { FPSInterval } from "./configs.js";
+import { FPSHandler } from "./tools/fpsHelper.js";
 
 let then;
 async function initGame() {
@@ -24,6 +25,7 @@ function runGame() {
 
         controlsHandler.runChecks()
         Display.update()
+        FPSHandler.addFrame()
 
     }, FPSInterval)
 
