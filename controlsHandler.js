@@ -28,16 +28,23 @@ export const controlsHandler = {
 
         if (this.keys.has("a")) {
             x -= Player.speed;
+            if (this.keys.has("d")) {
+                x = 0;
+            }
         } else if (this.keys.has("d")) {
             x += Player.speed;
         }
 
         if (this.keys.has("s")) {
             y += Player.speed;
+            if (this.keys.has("w")) {
+                y = 0;
+            }
         } else if (this.keys.has("w")) {
             y -= Player.speed;
         }
         
         Player.movePosition(x, y)
+        Camera.updatePosition()
     }
 }

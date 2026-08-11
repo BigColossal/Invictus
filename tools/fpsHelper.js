@@ -1,11 +1,15 @@
 import { FPSInterval } from "../configs.js";
 
-export function FPScap(then) {
-    let now = Date.now();
-    let elapsed = now - then;
-    if (elapsed > FPSInterval) {
-        return [false, now - (elapsed % FPSInterval)]
-    } else {
-        return [true, null];
+export const currentFPSHandler = {
+    countOfFrames: [],
+    averageOf: 60,
+    addFrame(fps) {
+        if (this.countOfFrames.length < this.averageOf) {
+            this.countOfFrames.push(fps)
+        } else if (this.countOfFrames.length == this.averageOf) {
+            const avg = this.countOfFrames.reduce((sum, digit) => sum + digit, 0) / 60;
+            this.countOfFrames = [fps]
+            console.log(avg)
+        }
     }
 }
