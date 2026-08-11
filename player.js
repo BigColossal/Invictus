@@ -1,6 +1,6 @@
 export const Player = {
     position: [0, 0],
-    speed: 15,
+    speed: 500,
 
     init() {
         

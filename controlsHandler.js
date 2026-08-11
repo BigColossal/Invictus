@@ -17,31 +17,31 @@ export const controlsHandler = {
         })
     },
 
-    runChecks() {
+    runChecks(dt) {
         if (this.keyPressed) {
-            this.handleKeyPress()
+            this.handleKeyPress(dt)
         }
     },
 
-    handleKeyPress() {
+    handleKeyPress(dt) {
         let x = 0, y = 0;
 
         if (this.keys.has("a")) {
-            x -= Player.speed;
+            x -= Player.speed * dt;
             if (this.keys.has("d")) {
                 x = 0;
             }
         } else if (this.keys.has("d")) {
-            x += Player.speed;
+            x += Player.speed * dt;
         }
 
         if (this.keys.has("s")) {
-            y += Player.speed;
+            y += Player.speed * dt;
             if (this.keys.has("w")) {
                 y = 0;
             }
         } else if (this.keys.has("w")) {
-            y -= Player.speed;
+            y -= Player.speed * dt;
         }
         
         Player.movePosition(x, y)

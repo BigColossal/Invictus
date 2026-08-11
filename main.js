@@ -4,32 +4,30 @@ import { controlsHandler } from "./controlsHandler.js";
 import { Player } from "./player.js";
 import { Camera } from "./camera.js";
 import { FPSInterval } from "./configs.js";
-import { FPSHandler } from "./tools/fpsHelper.js";
+import { FPSGetter } from "./tools/fpsHelper.js";
+import { gameHandler } from "./gameHandler.js";
 
-let then;
+let dt;
 async function initGame() {
 
     // sprites should load first before anything display related starts
     await spriteHandler.getSprites()
+
     controlsHandler.init()
     Player.init()
     Camera.init()
     Display.init()
 
-    runGame()
+    requestAnimationFrame(runGame)
 }
 
 function runGame() {
-    setTimeout(() => {
-        requestAnimationFrame(runGame);
-
-        controlsHandler.runChecks()
+        dt = FPSGetter.addFrame()
+        gameHandler.update(dt)
         Display.update()
-        FPSHandler.addFrame()
 
-    }, FPSInterval)
-
-}
+        requestAnimationFrame(runGame);
+    }
 
 initGame()
 

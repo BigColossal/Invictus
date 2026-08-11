@@ -1,6 +1,6 @@
 import { FPSInterval } from "../configs.js";
 
-export const FPSHandler = {
+export const FPSGetter = {
     countOfFrames: [],
     averageOf: 60,
     pastFrame: null,
@@ -10,14 +10,14 @@ export const FPSHandler = {
 
         if (!this.pastFrame) {
             this.pastFrame = currentFrame;
-            return;
+            return 0;
         }
-
-        // Time between frames in milliseconds.
         const delta = currentFrame - this.pastFrame;
 
+        // Time between frames in milliseconds.
+
         if (delta == 0) {
-            return;
+            return 0;
         }
 
         fps = 1000 / delta;
@@ -30,5 +30,6 @@ export const FPSHandler = {
             this.countOfFrames = [fps]
             console.log(avg)
         }
+        return delta / 1000;
     }
 }
