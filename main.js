@@ -6,6 +6,7 @@ import { Camera } from "./camera.js";
 import { FPSInterval } from "./configs.js";
 import { FPSGetter } from "./tools/fpsHelper.js";
 import { gameHandler } from "./gameHandler.js";
+import { mapData } from "./mapData.js";
 
 let dt;
 async function initGame() {
@@ -13,6 +14,7 @@ async function initGame() {
     // sprites should load first before anything display related starts
     await spriteHandler.getSprites()
 
+    mapData.init()
     controlsHandler.init()
     Player.init()
     Camera.init()

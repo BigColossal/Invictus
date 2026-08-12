@@ -1,3 +1,4 @@
+import { tileSize } from "./configs.js";
 import { getSprite } from "./tools/spriteHelpers.js";
 
 export const spriteHandler = {
@@ -7,10 +8,10 @@ export const spriteHandler = {
     async getSprites() {
 
         const namesAndPaths = [
-            ["grass", "./assets/grassSprite.png", "128"]]
+            ["grass", "./assets/grassSprite.png", tileSize]]
         await Promise.all(
-            namesAndPaths.map(async ([name, path, tileSize]) => {
-                this.sprites[name] = await getSprite(path, tileSize);
+            namesAndPaths.map(async ([name, path, spriteSize]) => {
+                this.sprites[name] = await getSprite(path, spriteSize);
             })
         );
 

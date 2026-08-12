@@ -1,8 +1,14 @@
 export const mapData = {
+    currentW: null,
+    currentH: null,
+    init() {
+        this.currentW = this.defense.grasslands.width;
+        this.currentH = this.defense.grasslands.height;
+    },
     defense: {
         grasslands: {
-            width: 100,
-            height: 100,
+            width: 15,
+            height: 15,
         }
     }
 }

@@ -2,7 +2,8 @@ MVP
 
 - [x] Create a green background with html5 canvas
 - [x] Create a 100x100 grass background
-- [ ] Create a playeable character with camera movement
+- [x] Create a playeable character with camera movement
+- [ ] Create player boundaries on map
 - [ ] Add stats (Health, damage, speed, regen) to player
 - [ ] Add Normal enemy type (with stats)
 - [ ] Add katana attack to player

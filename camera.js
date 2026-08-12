@@ -1,3 +1,4 @@
+import { tileSize } from "./configs.js";
 import { Player } from "./player.js"
 
 export const Camera = {
@@ -10,7 +11,7 @@ export const Camera = {
     },
 
     updatePosition() {
-        this.position = Player.position;
+        this.position = [Player.x, Player.y];
     },
 
     updateZoom() {
