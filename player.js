@@ -6,11 +6,29 @@ export const Player = {
     y: null,
     size: tileSize / 2,
 
-    speedLvl: 1,
+    speedLvl: 100,
+    healthLvl: 1,
+    regenLvl: 1,
+    attackLvl: 1,
+
+    maxHealth: null,
+    currentHealth: null,
+    speed: null,
+    regenRate: null,
+    katanaDamage: null,
 
     init() {
         this.x = (mapData.currentW * tileSize) / 2;
         this.y = (mapData.currentH * tileSize) / 2;
+
+        this.maxHealth = this.getHealth()
+        this.currentHealth = this.maxHealth;
+        
+        this.speed = this.getSpeed();
+        
+        this.regenRate = this.getRegen();
+
+        this.katanaDamage = this.getKatanaDamage();
     },
 
     getHitBox() {
@@ -23,16 +41,23 @@ export const Player = {
     },
 
     getSpeed() {
-        const baseSpeed = 200
-        return baseSpeed + ((this.speedLvl - 1) * 5)
+        const baseSpeed = 200;
+        return baseSpeed + ((this.speedLvl - 1) * 10);
     },
 
     getHealth() {
-
+        const baseHealth = 100;
+        return baseHealth + ((this.healthLvl - 1) * 15);
     },
 
     getRegen() {
+        const baseRegenRate = 1.6;
+        return baseRegenRate + ((this.regenLvl - 1) * 10);
+    },
 
+    getKatanaDamage() {
+        const baseKatanaDamage = 10;
+        return baseKatanaDamage + ((this.attackLvl - 1) * 2.5)
     },
 
     movePosition(x, y) {

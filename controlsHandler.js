@@ -25,24 +25,23 @@ export const controlsHandler = {
 
     handleKeyPress(dt) {
         let x = 0, y = 0;
-        const playerSpeed = Player.getSpeed()
 
         if (this.keys.has("a")) {
-            x -= playerSpeed * dt;
+            x -= Player.speed * dt;
             if (this.keys.has("d")) {
                 x = 0;
             }
         } else if (this.keys.has("d")) {
-            x += playerSpeed * dt;
+            x += Player.speed * dt;
         }
 
         if (this.keys.has("s")) {
-            y += playerSpeed * dt;
+            y += Player.speed * dt;
             if (this.keys.has("w")) {
                 y = 0;
             }
         } else if (this.keys.has("w")) {
-            y -= playerSpeed * dt;
+            y -= Player.speed * dt;
         }
         
         Player.movePosition(x, y)

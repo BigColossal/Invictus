@@ -63,15 +63,7 @@ export const Display = {
                     tileSize,
                     tileSize
                 );
-
-                // Tile boundary
-                this.ctx.strokeStyle = "red";
-                this.ctx.strokeRect(
-                    screenX,
-                    screenY,
-                    tileSize,
-                    tileSize
-                    )}
+                }
         }
     },
 
