@@ -67,16 +67,24 @@ export const Player = {
         }
         const [leftHitbox, rightHitbox, topHitbox, bottomHitbox] = this.getHitBox()
 
-        if (rightHitbox + x < mapData.currentW * tileSize &&
+        if (rightHitbox + x <= mapData.currentW * tileSize &&
             leftHitbox + x >= 0
         ) {
             this.x += x;
+        } else if (leftHitbox + x <= 0) {
+            this.x = this.size / 2;
+        } else {
+            this.x = mapData.currentW * tileSize - this.size / 2
         }
 
-        if (bottomHitbox + y < mapData.currentH * tileSize &&
+        if (bottomHitbox + y <= mapData.currentH * tileSize &&
             topHitbox + y >= 0
         ) {
             this.y += y;
+        } else if (topHitbox + y <= 0) {
+            this.y = this.size / 2;
+        } else {
+            this.y = mapData.currentH * tileSize - this.size / 2;
         }
     }
 }
