@@ -11,6 +11,7 @@ export const Display = {
     height: null,
     width: null,
     backgroundCanvas: null,
+    
 
     /**
      * Resizes the canvas to match the browser viewport
@@ -67,18 +68,29 @@ export const Display = {
         }
     },
 
-    
-
     drawPlayer() {
         this.ctx.fillStyle = "white";
         this.ctx.fillRect(this.width / 2 - Player.size / 2, this.height / 2 - Player.size / 2, Player.size, Player.size);
     },
 
-    update() {
+    drawEnemies(enemies) {
+        if (!enemies) return;
+
+        const cameraX = Camera.position[0] - this.width / 2
+        const cameraY = Camera.position[1] - this.height / 2
+        for (let enemy of enemies) {
+            this.ctx.fillStyle = "red";
+            this.ctx.fillRect(enemy.x - cameraX, enemy.y - cameraY, enemy.size, enemy.size )
+
+        }
+    },
+
+    render(enemies) {
         this.ctx.fillStyle = "black"
         this.ctx.fillRect(0, 0, this.width, this.height);
         this.drawBackground();
         this.drawPlayer();
+        this.drawEnemies(enemies)
     },
 
     init() {

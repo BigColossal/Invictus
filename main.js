@@ -7,8 +7,10 @@ import { FPSInterval } from "./configs.js";
 import { FPSGetter } from "./tools/fpsHelper.js";
 import { gameHandler } from "./gameHandler.js";
 import { mapData } from "./mapData.js";
+import { Enemy } from "./enemy.js";
 
 let dt;
+let enemies;
 async function initGame() {
 
     // sprites should load first before anything display related starts
@@ -20,13 +22,15 @@ async function initGame() {
     Camera.init()
     Display.init()
 
+    enemies = [new Enemy(100, 100, 100, 5, "normal")]
+
     requestAnimationFrame(runGame)
 }
 
 function runGame() {
         dt = FPSGetter.addFrame()
         gameHandler.update(dt)
-        Display.update()
+        Display.render(enemies)
 
         requestAnimationFrame(runGame);
     }
