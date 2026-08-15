@@ -17,6 +17,12 @@ export const Player = {
     regenRate: null,
     katanaDamage: null,
 
+    katanaLength: 65,
+    katanaHitBox: null,
+    attacking: false,
+    katanaPath: null,
+    currentKatanaFrame: 0,
+
     init() {
         this.x = (mapData.currentW * tileSize) / 2;
         this.y = (mapData.currentH * tileSize) / 2;
@@ -85,6 +91,17 @@ export const Player = {
             this.y = this.size / 2;
         } else {
             this.y = mapData.currentH * tileSize - this.size / 2;
+        }
+    },
+
+    attack(enemies) {
+        if (!this.attacking) {
+            this.attacking = true;
+        }
+        for (let enemy of enemies) {
+            if (Math.abs(enemy.x - this.x) > this.katanaLength || Math.abs(enemy.y - this.y) > this.katanaLength) continue;
+
+
         }
     }
 }

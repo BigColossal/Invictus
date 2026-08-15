@@ -5,7 +5,7 @@ MVP
 - [x] Create a playeable character with camera movement
 - [x] Create player boundaries on map
 - [x] Add stats (Health, damage, speed, regen) to player
-- [ ] Add Normal enemy type (with stats)
+- [x] Add Normal enemy type (with stats)
 - [ ] Add katana attack to player
 - [ ] Add hitboxes to player and enemy
 - [ ] Add pathfinding AI to enemies
